@@ -35,7 +35,7 @@ button.addEventListener("click",()=>{
     const inputvalue=input.value
     if(inputvalue==="") return;
  const newuser=document.createElement("li")
- newuser.innerHTML=`${inputvalue}<button id="edit">edit</button><button id="delete">delete</button>`
+ newuser.innerHTML=`${inputvalue}<button id="edit">edit</button>&nbsp;<button id="delete">delete</button>`
  list.appendChild(newuser)   
  input.value=""
  input.focus()
