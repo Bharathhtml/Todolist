@@ -48,12 +48,26 @@ button.addEventListener("click",()=>{
  edituser.addEventListener("click",()=>{
     const editvalue=prompt("enter the value to be edit: ",inputvalue)
     if (editvalue){
-        newuser.innerHTML=`${editvalue}<button id="edit">edit</button><button id="delete">delete</button>`
+        newuser.innerHTML=`${editvalue}<button id="edit">edit</button>&nbsp;<button id="delete">delete</button>`
     }
 const deleteediteduser=newuser.querySelector("#delete")
 deleteediteduser.addEventListener("click",()=>{
     newuser.remove()
 })    
+
+const newediteduser=newuser.querySelector("#edit")
+newediteduser.addEventListener('click',()=>{
+    const newedituser=prompt("enter the user to be edited: ",editvalue)
+    if(newedituser){
+           newuser.innerHTML=`${newedituser}<button id="edit">edit</button>&nbsp;<button id="delete">delete</button>`
+    }
+
+const deleteuser=newuser.querySelector("#delete")
+deleteuser.addEventListener("click",()=>{
+    newuser.remove()
+})
+})
+     
 
 
 
