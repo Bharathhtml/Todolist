@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#list{
+    list-style-type: none;
+} 
+#edit{
+    background-color: blue;
+}  
+#delete{
+    background-color: red;
+} 
+</style>
+<body>
+<center>
+<input type="text" id="input">
+<button>add user</button>   
+<hr> 
+<ul id="list">
+    <li></li>
+</ul>
+
+</center>    
+<script>
+const input=document.getElementById("input")
+const button=document.querySelector("button")
+const list=document.getElementById("list") 
+
+button.addEventListener("click",()=>{
+    const inputvalue=input.value
+    if(inputvalue==="") return;
+ const newuser=document.createElement("li")
+ newuser.innerHTML=`${inputvalue}<button id="edit">edit</button><button id="delete">delete</button>`
+ list.appendChild(newuser)   
+ input.value=""
+ input.focus()
+
+ const deleteuser=newuser.querySelector("#delete")
+ deleteuser.addEventListener("click",()=>{
+    newuser.remove()
+ })
+ const edituser=newuser.querySelector("#edit")
+ edituser.addEventListener("click",()=>{
+    const editvalue=prompt("enter the value to be edit: ",inputvalue)
+    if (editvalue){
+        newuser.innerHTML=`${editvalue}<button id="edit">edit</button><button id="delete">delete</button>`
+    }
+const deleteediteduser=newuser.querySelector("#delete")
+deleteediteduser.addEventListener("click",()=>{
+    newuser.remove()
+})    
+
+
+
+ })
+})  
+</script>
+    
+</body>
+</html>
